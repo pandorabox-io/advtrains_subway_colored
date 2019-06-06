@@ -3,7 +3,7 @@ advtrains_subway_colored.register = function(color)
 
 	advtrains.register_wagon("subway_wagon_" .. color, {
 		mesh="advtrains_subway_wagon.b3d",
-		textures = {"advtrains_subway_wagon" .. color .. ".png"},
+		textures = {"advtrains_subway_wagon_" .. color .. ".png"},
 		drives_on={default=true},
 		max_speed=15,
 		seats = {
@@ -118,7 +118,7 @@ advtrains_subway_colored.register = function(color)
 				self.line_cache=nil
 			end
 		end,
-	}, "Subway Passenger Wagon (" .. color .. ")", "advtrains_subway_wagon_inv" .. color .. ".png")
+	}, "Subway Passenger Wagon (" .. color .. ")", "advtrains_subway_wagon_inv_" .. color .. ".png")
 
 	--wagons
 	minetest.register_craft({
