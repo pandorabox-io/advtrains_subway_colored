@@ -122,7 +122,7 @@ advtrains_subway_colored.register = function(color)
 
 	--wagons
 	minetest.register_craft({
-		output = 'advtrains:subway_wagon',
+		output = 'advtrains:subway_wagon_' .. color,
 		recipe = {
 			{'default:steelblock', 'default:steelblock', 'default:steelblock'},
 			{'default:steelblock', 'dye:' .. color, 'default:steelblock'},
