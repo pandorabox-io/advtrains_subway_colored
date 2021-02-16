@@ -120,14 +120,25 @@ advtrains_subway_colored.register = function(color)
 		end,
 	}, "Subway Passenger Wagon (" .. color .. ")", "advtrains_subway_wagon_inv_" .. color .. ".png")
 
-	--wagons
-	minetest.register_craft({
-		output = 'advtrains:subway_wagon_' .. color,
-		recipe = {
-			{'default:steelblock', 'default:steelblock', 'default:steelblock'},
-			{'default:steelblock', 'dye:' .. color, 'default:steelblock'},
-			{'default:steelblock', 'default:steelblock', 'default:steelblock'},
-		},
-	})
-
+	if minetest.get_modpath("machine_parts") then
+		--wagons
+		machine_parts.register_craft({
+			output = 'advtrains:subway_wagon_' .. color,
+			recipe = {
+				{"tempered_glass", 'dye:' .. color, "light"},
+				{"engine_block", "gearbox", "dashboard"},
+				{"advtrains:wheel", "drive_shaft", "advtrains:wheel"},
+			},
+		})
+	else
+		--wagons
+		minetest.register_craft({
+			output = 'advtrains:subway_wagon_' .. color,
+			recipe = {
+				{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+				{'default:steelblock', 'dye:' .. color, 'default:steelblock'},
+				{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+			},
+		})
+	end
 end
